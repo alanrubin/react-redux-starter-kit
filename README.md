@@ -43,7 +43,7 @@ Finally, This project wouldn't be possible without the help of our many contribu
 * [eslint](http://eslint.org)
 
 ## Requirements
-* node `^4.5.0`
+* node `^6.3.0` : We recommend using [AVN](https://github.com/wbyoung/avn) with [NVM](https://github.com/creationix/nvm) for automatic node version switching. The project comes with AVN `.node-version` file to auto select node version on entering the directory. 
 * npm `^3.0.0`
 
 ## Getting Started
