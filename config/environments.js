@@ -9,7 +9,7 @@ module.exports = {
   // are served webpack by to fix this issue:
   // http://stackoverflow.com/questions/34133808/webpack-ots-parsing-error-loading-fonts/34133809#34133809
   development : (config) => ({
-    compiler_public_path : `http://${config.server_host}:${config.server_port}/`,
+    compiler_public_path : `http://${config.server_host}:${config.server_port}/`
     // TODO Use dotenv for not commiting values, alternatively you can use configure
     // values here and get them replaced in JS at build time by using globably
     // (ex. client.API will be replaced by 'https://my-url')
@@ -32,7 +32,7 @@ module.exports = {
       chunks       : true,
       chunkModules : true,
       colors       : true
-    },
+    }
     // TODO Use dotenv for not commiting values, alternatively you can use configure
     // values here and get them replaced in JS at build time by using globably
     // (ex. client.API will be replaced by 'https://my-url')
