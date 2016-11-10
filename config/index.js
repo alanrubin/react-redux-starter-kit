@@ -128,4 +128,9 @@ if (overrides) {
   debug('No environment overrides found, defaults will be used.')
 }
 
+// Pass client to globals CLIENT
+// Which will used in Webpack's define plugin
+// TODO Do we still need that ?
+// config.globals.CLIENT = JSON.stringify(config.client)
+
 module.exports = config
