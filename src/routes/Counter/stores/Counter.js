@@ -1,9 +1,5 @@
 import { observable, action, useStrict } from 'mobx'
 
-// TODO Move that to createStore
-// Allow only @actions to modify state
-useStrict(true)
-
 class Counter {
   @observable counter = 0
 
