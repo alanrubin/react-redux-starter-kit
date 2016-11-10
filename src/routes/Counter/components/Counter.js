@@ -1,10 +1,10 @@
 import React from 'react'
 import {observer} from 'mobx-react'
-import counterStore from '../modules/CounterStore'
+import CounterStore from '../modules/CounterStore'
 
 export const Counter = (props) => {
 
-  const { counter, increment, doubleAsync } = counterStore
+  const { counter, increment, doubleAsync } = CounterStore
 
   return (
     <div style={{ margin: '0 auto' }} >

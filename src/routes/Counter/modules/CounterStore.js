@@ -1,14 +1,24 @@
-import {observable} from 'mobx';
+import { observable, action } from 'mobx';
 
-const counterStore = observable({
-  counter: 0
-})
-counterStore.increment = function (value=1) {
-  counterStore.counter = counterStore.counter + value
+class Counter {
+  @observable counter = 0
+
+  @action
+  increment = (value=1) => {
+    this.counter = this.counter + value
+  }
+
+  @action
+  doubleAsync = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.increment(this.counter)
+        resolve()
+      }, 500)
+    })
+  }
 }
-counterStore.doubleAsync = function() {
-  setTimeout(() => {
-    counterStore.increment(counterStore.counter)
-  }, 1000)
-}
-module.exports = counterStore;
+
+const CounterStore = new Counter()
+
+export default CounterStore
