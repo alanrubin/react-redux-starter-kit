@@ -1,4 +1,4 @@
-import React from 'react'
+import { inject } from 'mobx-react'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -6,5 +6,10 @@ import React from 'react'
     component - in this case, the counter:   */
 
 import Counter from '../components/Counter'
+import CounterStore from '../stores/Counter'
 
-export default Counter
+const mapStoreToProps = (stores) => ({
+  CounterStore
+})
+
+export default inject(mapStoreToProps)(Counter)
