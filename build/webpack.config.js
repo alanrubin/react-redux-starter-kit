@@ -58,6 +58,11 @@ webpackConfig.plugins = [
   function () {
     let errors = []
     this.plugin('done', function (stats) {
+      // Do nothing if not in test environment
+      if(!__TEST__) {
+        return
+      }
+
       if (stats.compilation.errors.length) {
         // Log each of the warnings
         stats.compilation.errors.forEach(function (error) {
