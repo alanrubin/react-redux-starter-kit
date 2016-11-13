@@ -9,7 +9,8 @@ import Counter from '../components/Counter'
 import CounterStore from '../stores/Counter'
 
 const mapStoreToProps = (stores) => ({
-  CounterStore
+  CounterStore,
+  UiStore: stores.UiStore
 })
 
 export default inject(mapStoreToProps)(Counter)

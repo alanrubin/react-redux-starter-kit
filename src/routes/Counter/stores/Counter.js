@@ -1,4 +1,6 @@
-import { observable, action, useStrict } from 'mobx'
+import { observable, action } from 'mobx'
+
+import UiStore from '../../../store/UiStore'
 
 class Counter {
   @observable counter = 0
@@ -11,14 +13,16 @@ class Counter {
   @action
   doubleAsync = () => {
     return new Promise((resolve) => {
+      UiStore.startRequest()
       setTimeout(() => {
         this.increment(this.counter)
+        UiStore.endRequest()
         resolve()
       }, 500)
     })
   }
 }
 
-const CounterStore = new Counter()
+const counterStore = new Counter()
 
-export default CounterStore
+export default counterStore
