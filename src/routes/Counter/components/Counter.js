@@ -1,5 +1,5 @@
 import React from 'react'
-import {observer} from 'mobx-react'
+import {observer, PropTypes} from 'mobx-react'
 
 export const Counter = (props) => {
 
@@ -23,9 +23,8 @@ export const Counter = (props) => {
 }
 
 Counter.propTypes = {
-  counter     : React.PropTypes.number.isRequired,
-  doubleAsync : React.PropTypes.func.isRequired,
-  increment   : React.PropTypes.func.isRequired
+  CounterStore : PropTypes.observableObject.isRequired,
+  UiStore : PropTypes.observableObject.isRequired
 }
 
 export default observer(Counter)
