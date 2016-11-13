@@ -3452,6 +3452,10 @@ karma-phantomjs-launcher@^1.0.2:
     lodash "^4.0.1"
     phantomjs-prebuilt "^2.1.7"
 
+karma-phantomjs-shim:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/karma-phantomjs-shim/-/karma-phantomjs-shim-1.4.0.tgz#21072f436e07764a425fbbdc15175b537106e7ed"
+
 karma-webpack-with-fast-source-maps@^1.9.2:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/karma-webpack-with-fast-source-maps/-/karma-webpack-with-fast-source-maps-1.10.0.tgz#218179a62978dab32f076edc7c2c12714af21719"

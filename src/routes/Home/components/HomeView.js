@@ -1,11 +1,26 @@
 import React from 'react'
 import DuckImage from '../assets/Duck.jpg'
-import './HomeView.scss'
+
+import styled from 'styled-components'
+
+const Img = styled.img`
+  display: block;
+  width: 120px;
+  margin: 1.5rem auto;
+`
+
+const Title = styled.h4`
+  color: red;
+
+  &:hover {
+    color: blue;
+  }
+`
 
 export const HomeView = () => (
   <div>
-    <h4>Welcome!</h4>
-    <img
+    <Title>Welcome!</Title>
+    <Img
       alt='This is a duck, because Redux!'
       className='duck'
       src={DuckImage} />
