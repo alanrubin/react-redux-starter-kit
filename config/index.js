@@ -23,7 +23,7 @@ const config = {
   // ----------------------------------
   // Server Configuration
   // ----------------------------------
-  server_host : ip.address(), // use string 'localhost' to prevent exposure on local network
+  server_host : 'localhost', // use string 'localhost' to prevent exposure on local network
   server_port : process.env.PORT || 3000,
 
   // ----------------------------------
@@ -31,7 +31,7 @@ const config = {
   // ----------------------------------
   compiler_babel : {
     cacheDirectory : true,
-    plugins        : ['transform-runtime'],
+    plugins        : ['transform-runtime', 'transform-decorators-legacy'],
     presets        : ['es2015', 'react', 'stage-0']
   },
   compiler_devtool         : 'source-map',

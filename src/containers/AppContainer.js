@@ -1,6 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import { browserHistory, Router } from 'react-router'
-import { Provider } from 'react-redux'
+import { Provider } from 'mobx-react'
+
+// ========================================================
+// Developer Tools Setup
+// ========================================================
+let DevTools = () => null
+
+if(__DEV__) {
+  DevTools = require('mobx-react-devtools').default
+}
 
 class AppContainer extends Component {
   static propTypes = {
@@ -16,8 +25,9 @@ class AppContainer extends Component {
     const { routes, store } = this.props
 
     return (
-      <Provider store={store}>
+      <Provider {...store}>
         <div style={{ height: '100%' }}>
+          <DevTools />
           <Router history={browserHistory} children={routes} />
         </div>
       </Provider>
