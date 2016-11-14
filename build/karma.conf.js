@@ -8,7 +8,7 @@ const karmaConfig = {
   basePath : '../', // project root in relation to bin/karma.js
   files    : [
     {
-      pattern  : `./${config.dir_test}/test-bundler.js`,
+      pattern  : `./${config.dir_build}/test-bundler.js`,
       watched  : false,
       served   : true,
       included : true
@@ -18,7 +18,7 @@ const karmaConfig = {
   frameworks    : ['phantomjs-shim', 'mocha'],
   reporters     : ['mocha'],
   preprocessors : {
-    [`${config.dir_test}/test-bundler.js`] : ['webpack']
+    [`${config.dir_build}/test-bundler.js`] : ['webpack']
   },
   browsers : ['PhantomJS'],
   webpack  : {
