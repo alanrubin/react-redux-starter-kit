@@ -10,13 +10,17 @@
     "promise"
   ],
   "env": {
-    "browser" : true
+    "browser" : true,
+    "mocha" : true
   },
   "globals": {
     "__DEV__"      : false,
     "__TEST__"     : false,
     "__PROD__"     : false,
-    "__COVERAGE__" : false
+    "__COVERAGE__" : false,
+    "expect" : false,
+    "should" : false,
+    "sinon"  : false
   },
   "rules": {
     "key-spacing"          : 0,
