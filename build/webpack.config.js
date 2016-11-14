@@ -59,7 +59,7 @@ webpackConfig.plugins = [
     let errors = []
     this.plugin('done', function (stats) {
       // Do nothing if not in test environment
-      if(!__TEST__) {
+      if (!__TEST__) {
         return
       }
 

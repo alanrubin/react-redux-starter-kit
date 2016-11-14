@@ -7,7 +7,7 @@ import { Provider } from 'mobx-react'
 // ========================================================
 let DevTools = () => null
 
-if(__DEV__) {
+if (__DEV__) {
   DevTools = require('mobx-react-devtools').default
 }
 

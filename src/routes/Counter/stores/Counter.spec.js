@@ -1,8 +1,6 @@
 import { CounterStore } from './Counter'
-import { action } from 'mobx'
 
 describe('(Store) Counter', () => {
-
   let store
 
   beforeEach(() => {

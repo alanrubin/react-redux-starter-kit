@@ -5,15 +5,15 @@ import UiStore from '../../../store/UiStore'
 export class CounterStore {
   @observable counter
 
-  constructor(initialCounter = 0) {
+  constructor (initialCounter = 0) {
     // Cannot decorate with @action constructors and observables can only be modified in actions (useStrict(true))
-    runInAction(() =>{
+    runInAction(() => {
       this.counter = initialCounter
     })
   }
 
   @action
-  increment = (value=1) => {
+  increment = (value = 1) => {
     this.counter = this.counter + value
   }
 

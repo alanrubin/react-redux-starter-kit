@@ -1,8 +1,7 @@
 import React from 'react'
-import {observer, PropTypes} from 'mobx-react'
+import { observer, PropTypes } from 'mobx-react'
 
 export const Counter = (props) => {
-
   const { counter, increment, doubleAsync } = props.CounterStore
   const { appIsInSync } = props.UiStore
 
@@ -19,7 +18,6 @@ export const Counter = (props) => {
       </button>
     </div>
   )
-
 }
 
 Counter.propTypes = {

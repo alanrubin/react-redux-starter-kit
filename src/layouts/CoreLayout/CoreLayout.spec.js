@@ -3,10 +3,9 @@ import { shallow } from 'enzyme'
 import CoreLayout from 'layouts/CoreLayout/CoreLayout'
 
 describe('(Layout) Core', function () {
-  let _props, _spies, _wrapper
+  let _props, _wrapper
 
   beforeEach(() => {
-    _spies = {}
     _props = {
       children : <h1 className='child'>Child</h1>
     }
