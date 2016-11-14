@@ -9,11 +9,11 @@ export const Counter = (props) => {
     <div style={{ margin: '0 auto' }} >
       <h2>Counter: {counter}</h2>
       { !appIsInSync ? <h3>Waiting for requests...</h3> : null}
-      <button className='btn btn-default' onClick={() => increment()}>
+      <button className="btn btn-default" onClick={() => increment()}>
         Increment
       </button>
       {' '}
-      <button className='btn btn-default' onClick={() => doubleAsync()}>
+      <button className="btn btn-default" onClick={() => doubleAsync()}>
         Double (Async)
       </button>
     </div>
@@ -21,8 +21,8 @@ export const Counter = (props) => {
 }
 
 Counter.propTypes = {
-  CounterStore : PropTypes.observableObject.isRequired,
-  UiStore : PropTypes.observableObject.isRequired
+  CounterStore: PropTypes.observableObject.isRequired,
+  UiStore: PropTypes.observableObject.isRequired,
 }
 
 export default observer(Counter)

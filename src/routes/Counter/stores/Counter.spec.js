@@ -23,9 +23,9 @@ describe('(Store) Counter', () => {
       expect(store.doubleAsync).to.be.a('function')
     })
 
-    it('Should return a promise from that thunk that gets fulfilled.', () => {
-      return store.doubleAsync().should.eventually.be.fulfilled
-    })
+    it('Should return a promise from that thunk that gets fulfilled.', () =>
+       store.doubleAsync().should.eventually.be.fulfilled,
+    )
 
     it('Should produce a state that is double the previous state.', () => {
       store = new CounterStore(2)

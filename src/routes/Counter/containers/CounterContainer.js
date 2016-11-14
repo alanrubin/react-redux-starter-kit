@@ -8,9 +8,9 @@ import { inject } from 'mobx-react'
 import Counter from '../components/Counter'
 import CounterStore from '../stores/Counter'
 
-const mapStoreToProps = (stores) => ({
+const mapStoreToProps = stores => ({
   CounterStore,
-  UiStore: stores.UiStore
+  UiStore: stores.UiStore,
 })
 
 export default inject(mapStoreToProps)(Counter)

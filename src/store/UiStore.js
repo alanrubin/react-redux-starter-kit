@@ -17,15 +17,15 @@ class UiStore {
     //     })
     // }
 
-    @computed get appIsInSync () {
+    @computed get appIsInSync() {
       return this.pendingRequestCount === 0
     }
 
-    @action startRequest () {
+    @action startRequest() {
       this.pendingRequestCount++
     }
 
-    @action endRequest () {
+    @action endRequest() {
       this.pendingRequestCount--
     }
 }

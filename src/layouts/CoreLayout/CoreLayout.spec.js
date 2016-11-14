@@ -2,12 +2,13 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import CoreLayout from 'layouts/CoreLayout/CoreLayout'
 
-describe('(Layout) Core', function () {
-  let _props, _wrapper
+describe('(Layout) Core', () => {
+  let _props,
+    _wrapper
 
   beforeEach(() => {
     _props = {
-      children : <h1 className='child'>Child</h1>
+      children: <h1 className="child">Child</h1>,
     }
     _wrapper = shallow(<CoreLayout {..._props} />)
   })

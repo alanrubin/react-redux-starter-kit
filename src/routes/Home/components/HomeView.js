@@ -21,9 +21,10 @@ export const HomeView = () => (
   <div>
     <Title>Welcome!</Title>
     <Img
-      alt='This is a duck, because Redux!'
-      className='duck'
-      src={DuckImage} />
+      alt="This is a duck, because Redux!"
+      className="duck"
+      src={DuckImage}
+    />
   </div>
 )
 
