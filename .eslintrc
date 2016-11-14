@@ -22,6 +22,8 @@
     "sinon"  : false
   },
   "rules": {
-    "semi"                   : [2, "never"]
+    "semi"                   : [2, "never"],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.spec.js*", "**/main.jsx"]}]
+    # "import/no-unresolved": [2, { ignore: ['routes', 'components', 'layouts'] }]
   }
 }

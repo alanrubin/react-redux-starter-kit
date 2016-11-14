@@ -6,7 +6,7 @@ import AppContainer from './containers/AppContainer'
 // ========================================================
 // Store Instantiation
 // ========================================================
-const initialState = window.___INITIAL_STATE__
+const initialState = window.__INITIAL_STATE__ // eslint-disable-line no-underscore-dangle
 const store = createStore(initialState)
 
 // ========================================================
@@ -15,7 +15,7 @@ const store = createStore(initialState)
 const MOUNT_NODE = document.getElementById('root')
 
 let render = () => {
-  const routes = require('./routes/index').default(store)
+  const routes = require('./routes/index').default(store) // eslint-disable-line global-require
 
   ReactDOM.render(
     <AppContainer store={store} routes={routes} />,
@@ -29,7 +29,7 @@ if (__DEV__) {
     // Development render functions
     const renderApp = render
     const renderError = (error) => {
-      const RedBox = require('redbox-react').default
+      const RedBox = require('redbox-react').default // eslint-disable-line global-require
 
       ReactDOM.render(<RedBox error={error} />, MOUNT_NODE)
     }

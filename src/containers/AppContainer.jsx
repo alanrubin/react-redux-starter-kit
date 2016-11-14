@@ -8,13 +8,13 @@ import { Provider } from 'mobx-react'
 let DevTools = () => null
 
 if (__DEV__) {
-  DevTools = require('mobx-react-devtools').default
+  DevTools = require('mobx-react-devtools').default // eslint-disable-line global-require
 }
 
 class AppContainer extends Component {
   static propTypes = {
-    routes: PropTypes.object.isRequired,
-    store: PropTypes.object.isRequired,
+    routes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   }
 
   shouldComponentUpdate() {
@@ -28,7 +28,9 @@ class AppContainer extends Component {
       <Provider {...store}>
         <div style={{ height: '100%' }}>
           <DevTools />
-          <Router history={browserHistory} children={routes} />
+          <Router history={browserHistory}>
+            {routes}
+          </Router>
         </div>
       </Provider>
     )

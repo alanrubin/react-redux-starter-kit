@@ -22,11 +22,11 @@ class UiStore {
     }
 
     @action startRequest() {
-      this.pendingRequestCount++
+      this.pendingRequestCount = this.pendingRequestCount + 1
     }
 
     @action endRequest() {
-      this.pendingRequestCount--
+      this.pendingRequestCount = this.pendingRequestCount - 1
     }
 }
 

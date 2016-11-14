@@ -1,4 +1,4 @@
-export default store => ({
+export default (/* store */) => ({
   path: 'counter',
   /*  Async getComponent is only invoked when route matches   */
   getComponent(nextState, cb) {

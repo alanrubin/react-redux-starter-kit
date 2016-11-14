@@ -1,19 +1,21 @@
+/* eslint-disable no-unused-expressions */
+
 import React from 'react'
 import { shallow } from 'enzyme'
-import CoreLayout from 'layouts/CoreLayout/CoreLayout'
+import CoreLayout from './CoreLayout'
 
 describe('(Layout) Core', () => {
-  let _props,
-    _wrapper
+  let props
+  let wrapper
 
   beforeEach(() => {
-    _props = {
+    props = {
       children: <h1 className="child">Child</h1>,
     }
-    _wrapper = shallow(<CoreLayout {..._props} />)
+    wrapper = shallow(<CoreLayout {...props} />)
   })
 
   it('Should render as a <div>.', () => {
-    expect(_wrapper.is('div')).to.equal(true)
+    expect(wrapper.is('div')).to.equal(true)
   })
 })

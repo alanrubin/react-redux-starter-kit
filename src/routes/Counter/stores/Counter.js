@@ -2,11 +2,12 @@ import { observable, action, runInAction } from 'mobx'
 
 import UiStore from '../../../store/UiStore'
 
-export class CounterStore {
+export class Store {
   @observable counter
 
   constructor(initialCounter = 0) {
-    // Cannot decorate with @action constructors and observables can only be modified in actions (useStrict(true))
+    // Cannot decorate with @action constructors and observables can only be
+    //  modified in actions (useStrict(true))
     runInAction(() => {
       this.counter = initialCounter
     })
@@ -30,6 +31,6 @@ export class CounterStore {
 
 }
 
-const counterStore = new CounterStore()
+const CounterStore = new Store()
 
-export default counterStore
+export default CounterStore
