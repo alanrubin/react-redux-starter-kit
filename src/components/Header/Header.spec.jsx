@@ -3,7 +3,7 @@ import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import { shallow } from 'enzyme'
 
-import { Header } from './Header'
+import Header from './Header'
 
 describe('(Component) Header', () => {
   let wrapper

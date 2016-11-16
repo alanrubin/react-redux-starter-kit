@@ -3,11 +3,6 @@
   "extends": [
     "airbnb"
   ],
-  "plugins": [
-    "babel",
-    "react",
-    "promise"
-  ],
   "env": {
     "browser" : true,
     "mocha" : true

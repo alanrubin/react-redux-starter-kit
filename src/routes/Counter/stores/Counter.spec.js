@@ -1,11 +1,11 @@
-import { CounterStore } from './Counter'
+import { Store } from './Counter'
 
 describe('(Store) Counter', () => {
   let store
 
   beforeEach(() => {
     // Initialize store on each test
-    store = new CounterStore()
+    store = new Store()
   })
 
   it('Should initialize with a counter of 0 (Number).', () => {
@@ -28,7 +28,7 @@ describe('(Store) Counter', () => {
     )
 
     it('Should produce a state that is double the previous state.', () => {
-      store = new CounterStore(2)
+      store = new Store(2)
 
       return store.doubleAsync()
         .then(() => {

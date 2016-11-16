@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react'
 import { render } from 'enzyme'
-import { HomeView } from './HomeView'
+import HomeView from './HomeView'
 
 
 describe('(View) Home', () => {
