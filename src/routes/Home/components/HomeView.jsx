@@ -1,7 +1,7 @@
 import React from 'react'
-import DuckImage from '../assets/Duck.jpg'
-
 import styled from 'styled-components'
+
+import DuckImage from '../assets/Duck.jpg'
 
 const Img = styled.img`
   display: block;
@@ -17,13 +17,14 @@ const Title = styled.h4`
   }
 `
 
-export const HomeView = () => (
+const HomeView = () => (
   <div>
     <Title>Welcome!</Title>
     <Img
-      alt='This is a duck, because Redux!'
-      className='duck'
-      src={DuckImage} />
+      alt="This is a duck, because Redux!"
+      className="duck"
+      src={DuckImage}
+    />
   </div>
 )
 

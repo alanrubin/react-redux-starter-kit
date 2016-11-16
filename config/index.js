@@ -2,7 +2,7 @@
 const path = require('path')
 const debug = require('debug')('app:config')
 const argv = require('yargs').argv
-const ip = require('ip')
+// const ip = require('ip')
 
 debug('Creating default configuration.')
 // ========================================================
@@ -19,6 +19,7 @@ const config = {
   dir_dist   : 'dist',
   dir_server : 'server',
   dir_test   : 'tests',
+  dir_build  : 'build',
 
   // ----------------------------------
   // Server Configuration
@@ -81,7 +82,7 @@ config.globals = {
   '__DEV__'      : config.env === 'development',
   '__PROD__'     : config.env === 'production',
   '__TEST__'     : config.env === 'test',
-  '__COVERAGE__' : !argv.watch && config.env === 'test',
+  '__COVERAGE__' : config.env === 'test',
   '__BASENAME__' : JSON.stringify(process.env.BASENAME || '')
 }
 

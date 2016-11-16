@@ -12,7 +12,7 @@ export default (initialState = {}) => {
 
   if (module.hot) {
     module.hot.accept('./stores', () => {
-      const stores = require('./stores').default
+      // const stores = require('./stores').default
       // TODO HMR support for global stores ?
       // store.replaceReducer(stores())
     })

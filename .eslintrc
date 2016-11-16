@@ -1,27 +1,24 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "standard",
-    "standard-react"
-  ],
-  "plugins": [
-    "babel",
-    "react",
-    "promise"
+    "airbnb"
   ],
   "env": {
-    "browser" : true
+    "browser" : true,
+    "mocha" : true
   },
   "globals": {
     "__DEV__"      : false,
     "__TEST__"     : false,
     "__PROD__"     : false,
-    "__COVERAGE__" : false
+    "__COVERAGE__" : false,
+    "expect" : false,
+    "should" : false,
+    "sinon"  : false
   },
   "rules": {
-    "key-spacing"          : 0,
-    "jsx-quotes"           : [2, "prefer-single"],
-    "max-len"              : [2, 120, 2],
-    "object-curly-spacing" : [2, "always"]
+    "semi"                   : [2, "never"],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.spec.js*", "**/main.jsx"]}]
+    # "import/no-unresolved": [2, { ignore: ['routes', 'components', 'layouts'] }]
   }
 }

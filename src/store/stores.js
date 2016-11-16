@@ -1,10 +1,10 @@
 import UiStore from './UiStore'
 
-export const makeRootStore = (initialState) => {
+const makeRootStore = (/* initialState */) =>
   // Add global stores here as properties
-  return {
-    UiStore
-  }
-}
+   ({
+     UiStore,
+   })
+
 
 export default makeRootStore

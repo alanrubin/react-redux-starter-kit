@@ -1,4 +1,4 @@
-import {observable, computed, asStructure, action} from 'mobx'
+import { observable, computed, action } from 'mobx'
 
 class UiStore {
     // @observable language = "en_US";
@@ -18,15 +18,15 @@ class UiStore {
     // }
 
     @computed get appIsInSync() {
-        return this.pendingRequestCount === 0
+      return this.pendingRequestCount === 0
     }
 
     @action startRequest() {
-      this.pendingRequestCount++
+      this.pendingRequestCount = this.pendingRequestCount + 1
     }
 
     @action endRequest() {
-      this.pendingRequestCount--
+      this.pendingRequestCount = this.pendingRequestCount - 1
     }
 }
 
