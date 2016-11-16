@@ -1,10 +1,4 @@
-# React Redux Starter Kit
-
-[![Join the chat at https://gitter.im/davezuko/react-redux-starter-kit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/davezuko/react-redux-starter-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/davezuko/react-redux-starter-kit.svg?branch=master)](https://travis-ci.org/davezuko/react-redux-starter-kit?branch=master)
-[![dependencies](https://david-dm.org/davezuko/react-redux-starter-kit.svg)](https://david-dm.org/davezuko/react-redux-starter-kit)
-[![devDependency Status](https://david-dm.org/davezuko/react-redux-starter-kit/dev-status.svg)](https://david-dm.org/davezuko/react-redux-starter-kit#info=devDependencies)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+# React Starter Kit
 
 This starter kit is designed to get you up and running with a bunch of awesome new front-end technologies, all on top of a configurable, feature-rich webpack build system that's already setup to provide hot reloading, CSS preprocessing with Sass, unit testing, code coverage reports, bundle splitting, and more.
 
@@ -34,16 +28,20 @@ Finally, This project wouldn't be possible without the help of our many contribu
 
 ## Features
 * [react](https://github.com/facebook/react)
-* [redux](https://github.com/rackt/redux)
+* [mobx](https://github.com/mobxjs/mobx)
 * [react-router](https://github.com/rackt/react-router)
 * [webpack](https://github.com/webpack/webpack)
 * [babel](https://github.com/babel/babel)
 * [express](https://github.com/expressjs/express)
 * [karma](https://github.com/karma-runner/karma)
-* [eslint](http://eslint.org)
+* [eslint](http://eslint.org) (with airbnb guide)
+* [nvm](https://github.com/creationix/nvm) + [avn](https://github.com/wbyoung/avn)
+* [yarn](https://code.facebook.com/posts/1840075619545360)
+* [SASS](http://sass-lang.com/) + [styled-components](https://github.com/styled-components/styled-components)
+* [Storybook](https://getstorybook.io/)
 
 ## Requirements
-* node `^6.3.0` : We recommend using [AVN](https://github.com/wbyoung/avn) with [NVM](https://github.com/creationix/nvm) for automatic node version switching. The project comes with AVN `.node-version` file to auto select node version on entering the directory.
+* node `^6.3.0` : We recommend using [avn](https://github.com/wbyoung/avn) with [nvm](https://github.com/creationix/nvm) for automatic node version switching. The project comes with AVN `.node-version` file to auto select node version on entering the directory.
 * yarn `^0.16.1`
 
 ## Getting Started
@@ -55,7 +53,7 @@ After confirming that your development environment meets the specified [requirem
 First, clone the project:
 
 ```bash
-$ git clone https://github.com/davezuko/react-redux-starter-kit.git <my-project-name>
+$ git clone https://github.com/alanrubin/react-starter-kit.git <my-project-name>
 $ cd <my-project-name>
 ```
 
@@ -63,13 +61,13 @@ Then install dependencies and check to see it works
 
 ```bash
 $ yarn                          # Install project dependencies
-$ yarn run start                # Compile and launch
+$ yarn start                # Compile and launch
 ```
 If everything works, you should see the following:
 
 <img src="http://i.imgur.com/zR7VRG6.png?2" />
 
-While developing, you will probably rely mostly on `yarn run start`; however, there are additional scripts at your disposal:
+While developing, you will probably rely mostly on `yarn start`; however, there are additional scripts at your disposal:
 
 |`yarn run <script>`|Description|
 |------------------|-----------|
@@ -77,12 +75,13 @@ While developing, you will probably rely mostly on `yarn run start`; however, th
 |`compile`|Compiles the application to disk (`~/dist` by default).|
 |`dev`|Same as `yarn run start`, but enables nodemon for the server as well.|
 |`test`|Runs unit tests with Karma and generates a coverage report.|
-|`test:dev`|Runs Karma and watches for changes to re-run tests; does not generate coverage reports.|
+|`test:dev`|Runs Karma and watches for changes to re-run tests; generate coverage reports as well.|
 |`deploy`|Runs linter, tests, and then, on success, compiles your application to disk.|
 |`deploy:dev`|Same as `deploy` but overrides `NODE_ENV` to "development".|
 |`deploy:prod`|Same as `deploy` but overrides `NODE_ENV` to "production".|
 |`lint`|Lint all `.js` files.|
 |`lint:fix`|Lint and fix all `.js` files. [Read more on this](http://eslint.org/docs/user-guide/command-line-interface.html#fix).|
+|`storybook`|Runs storybook server.|
 
 ## Application Structure
 
@@ -115,12 +114,13 @@ The application structure presented in this boilerplate is **fractal**, where fu
 │   │   └── Counter          # Fractal route
 │   │       ├── index.js     # Counter route definition
 │   │       ├── container    # Connect components to actions and store
-│   │       ├── modules      # Collections of reducers/constants/actions
+│   │       ├── stores       # Collections of local stores
 │   │       └── routes **    # Fractal sub-routes (** optional)
 │   ├── static               # Static assets (not imported anywhere in source code)
 │   ├── store                # Redux-specific pieces
 │   │   ├── createStore.js   # Create and instrument redux store
-│   │   └── reducers.js      # Reducer registry and injection
+│   │   └── stores.js        # Stores registry and injection
+│   │   └── UiStore.js       # A Ui store which is store that is globaly available
 │   └── styles               # Application-wide styles (generally settings)
 └── tests                    # Unit tests
 ```
@@ -144,7 +144,7 @@ Then follow the [manual integration walkthrough](https://github.com/gaearon/redu
 We use `react-router` [route definitions](https://github.com/reactjs/react-router/blob/master/docs/API.md#plainroute) (`<route>/index.js`) to define units of logic within our application. See the [application structure](#application-structure) section for more information.
 
 ## Testing
-To add a unit test, simply create a `.spec.js` file anywhere in `~/tests`. Karma will pick up on these files automatically, and Mocha and Chai will be available within your test without the need to import them. Coverage reports will be compiled to `~/coverage` by default. If you wish to change what reporters are used and where reports are compiled, you can do so by modifying `coverage_reporters` in `~/config/index.js`.
+To add a unit test, simply create a `.spec.jsx` or `.spec.js` file anywhere in the file structure, we recommend having it side by side in same directory of the file being tested. Karma will pick up on these files automatically, and Mocha and Chai will be available within your test without the need to import them. Coverage reports will be compiled to `~/coverage` by default. If you wish to change what reporters are used and where reports are compiled, you can do so by modifying `coverage_reporters` in `~/config/index.js`.
 
 ## Deployment
 Out of the box, this starter kit is deployable by serving the `~/dist` folder generated by `yarn run deploy` (make sure to specify your target `NODE_ENV` as well). This project does not concern itself with the details of server-side rendering or API structure, since that demands an opinionated structure that makes it difficult to extend the starter kit. However, if you do need help with more advanced deployment strategies, here are a few tips:
@@ -194,6 +194,8 @@ These are global variables available to you anywhere in your source code. If you
 ### Styles
 
 Both `.scss` and `.css` file extensions are supported out of the box. After being imported, styles will be processed with [PostCSS](https://github.com/postcss/postcss) for minification and autoprefixing, and will be extracted to a `.css` file during production builds.
+
+We are also using [styled-components](https://github.com/styled-components/styled-components) for styles inside components, so SASS should only be used for global wide styles.
 
 ### Server
 
