@@ -19,7 +19,9 @@
     "deploy": "better-npm-run deploy",
     "deploy:dev": "better-npm-run deploy:dev",
     "deploy:prod": "better-npm-run deploy:prod",
-    "codecov": "cat coverage/*/lcov.info | codecov"
+    "codecov": "cat coverage/*/lcov.info | codecov",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "betterScripts": {
     "compile": {
@@ -116,6 +118,7 @@
     "yargs": "^6.3.0"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.29.7",
     "babel-core": "^6.17.0",
     "babel-eslint": "^7.1.0",
     "babel-plugin-istanbul": "^2.0.1",
