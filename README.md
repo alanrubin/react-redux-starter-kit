@@ -46,7 +46,7 @@ Finally, This project wouldn't be possible without the help of our many contribu
 
 ## Getting Started
 
-After confirming that your development environment meets the specified [requirements](#requirements), you can create a new project based on `react-redux-starter-kit` in one of two ways:
+After confirming that your development environment meets the specified [requirements](#requirements), you can create a new project based on `react-starter-kit` in one of two ways:
 
 ### Install from source
 
@@ -117,8 +117,8 @@ The application structure presented in this boilerplate is **fractal**, where fu
 │   │       ├── stores       # Collections of local stores
 │   │       └── routes **    # Fractal sub-routes (** optional)
 │   ├── static               # Static assets (not imported anywhere in source code)
-│   ├── store                # Redux-specific pieces
-│   │   ├── createStore.js   # Create and instrument redux store
+│   ├── store                # Store-specific pieces
+│   │   ├── createStore.js   # Create and instrument mobx stores
 │   │   └── stores.js        # Stores registry and injection
 │   │   └── UiStore.js       # A Ui store which is store that is globaly available
 │   └── styles               # Application-wide styles (generally settings)
@@ -129,16 +129,9 @@ The application structure presented in this boilerplate is **fractal**, where fu
 
 #### Developer Tools
 
-**We recommend using the [Redux DevTools Chrome Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd).**
-Using the chrome extension allows your monitors to run on a separate thread and affords better performance and functionality. It comes with several of the most popular monitors, is easy to configure, filters actions, and doesn’t require installing any packages.
+We install by default [Mobx DevTools](https://github.com/mobxjs/mobx-react-devtools), you should be able to see when running in the development mode.
 
 However, adding the DevTools components to your project is simple. First, grab the packages from yarn:
-
-```bash
-yarn add redux-devtools redux-devtools-log-monitor redux-devtools-dock-monitor
-```
-
-Then follow the [manual integration walkthrough](https://github.com/gaearon/redux-devtools/blob/master/docs/Walkthrough.md).
 
 ### Routing
 We use `react-router` [route definitions](https://github.com/reactjs/react-router/blob/master/docs/API.md#plainroute) (`<route>/index.js`) to define units of logic within our application. See the [application structure](#application-structure) section for more information.
